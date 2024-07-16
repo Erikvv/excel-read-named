@@ -38,6 +38,14 @@ tasks.jar {
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     }
 }
+
+tasks.register<JavaExec>("run") {
+    group = "application"
+    description = "Runs the Kotlin application."
+    classpath = sourceSets["main"].runtimeClasspath
+    mainClass.set("com.zenmo.MainKt")
+}
+
 kotlin {
     jvmToolchain(21)
 }
